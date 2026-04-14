@@ -1,0 +1,106 @@
+<div id="server_plugin_switch_settings" class="spmext-root">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <div class="spmext-drawer-title">
+                <b>Server Plugin Switch</b>
+                <small>后端插件切换台</small>
+            </div>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <div class="spmext-shell">
+                <section class="spmext-section spmext-status-section">
+                    <div class="spmext-status-row">
+                        <span id="spmext_status_pill" class="spmext-status-pill" data-kind="ok">在线</span>
+                        <p id="spmext_status_text" class="spmext-status-text">正在读取后端插件状态。</p>
+                    </div>
+                    <div class="spmext-summary-row">
+                        <div class="spmext-summary-card">
+                            <span>插件数</span>
+                            <strong id="spmext_summary_plugins">0</strong>
+                        </div>
+                        <div class="spmext-summary-card">
+                            <span>已停用</span>
+                            <strong id="spmext_summary_disabled">0</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <nav class="spmext-tabs" aria-label="Server Plugin Switch">
+                    <button type="button" class="spmext-tab is-active" data-spmext-tab="plugins">插件</button>
+                    <button type="button" class="spmext-tab" data-spmext-tab="restart">重启</button>
+                </nav>
+
+                <section class="spmext-section spmext-page is-active" data-spmext-page="plugins">
+                    <div class="spmext-section-head spmext-section-head-row">
+                        <div>
+                            <strong>后端插件列表</strong>
+                            <p>启用 / 停用只改下次启动状态，真正生效要靠重启。</p>
+                        </div>
+                        <div class="spmext-toolbar spmext-toolbar-compact">
+                            <input id="spmext_search" class="text_pole" type="search" placeholder="搜索插件">
+                            <button id="spmext_refresh" class="menu_button" type="button">刷新</button>
+                        </div>
+                    </div>
+                    <div id="spmext_plugin_list" class="spmext-plugin-list">
+                        <div class="spmext-empty">正在读取插件列表。</div>
+                    </div>
+                </section>
+
+                <section class="spmext-page" data-spmext-page="restart">
+                    <section class="spmext-section">
+                        <div class="spmext-section-head">
+                            <div>
+                                <strong>重启方式</strong>
+                                <p>这里只保留酒馆内原生扩展面板，不再提供独立 web UI。</p>
+                            </div>
+                        </div>
+
+                        <form id="spmext_config_form" class="spmext-form">
+                            <div class="spmext-mode-row">
+                                <label class="spmext-mode-tile">
+                                    <input id="spmext_restart_mode_auto" type="radio" name="spmext_restart_mode" value="auto" checked>
+                                    <span>自动模式</span>
+                                    <small>Docker / pm2 / systemd / 外部保活</small>
+                                </label>
+                                <label class="spmext-mode-tile">
+                                    <input id="spmext_restart_mode_custom" type="radio" name="spmext_restart_mode" value="custom">
+                                    <span>自定义命令</span>
+                                    <small>本地手动启动、无守护 VPS、手动 termux</small>
+                                </label>
+                            </div>
+
+                            <label class="spmext-field">
+                                <span>自定义启动命令</span>
+                                <textarea id="spmext_custom_command" rows="3" placeholder="例如 npm start 或 ./Start.sh"></textarea>
+                            </label>
+
+                            <label class="spmext-field spmext-field-short">
+                                <span>重启延迟（毫秒）</span>
+                                <input id="spmext_restart_delay" type="number" min="100" max="60000" step="100" value="800">
+                            </label>
+
+                            <p id="spmext_mode_hint" class="spmext-mode-hint"></p>
+
+                            <div class="spmext-toolbar spmext-toolbar-actions">
+                                <button id="spmext_save_config" class="menu_button" type="submit">保存设置</button>
+                                <button id="spmext_test_command" class="menu_button" type="button">测试命令</button>
+                                <button id="spmext_restart_now" class="menu_button menu_button_primary" type="button">一键重启酒馆</button>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section class="spmext-section">
+                        <div class="spmext-section-head">
+                            <div>
+                                <strong>最近结果</strong>
+                                <p>最近一次预检或重启安排结果会显示在这里。</p>
+                            </div>
+                        </div>
+                        <div id="spmext_result_card" class="spmext-result-card is-empty">还没有记录。</div>
+                    </section>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

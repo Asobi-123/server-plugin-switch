@@ -1,0 +1,16 @@
+{
+  "name": "server-plugin-switch",
+  "version": "0.1.0",
+  "description": "SillyTavern server plugin switch with enable/disable toggles and guided restart modes.",
+  "main": "index.js",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "sillytavern",
+    "server-plugin",
+    "plugin-manager",
+    "restart"
+  ],
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
