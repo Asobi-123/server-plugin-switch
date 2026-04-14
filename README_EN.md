@@ -45,11 +45,15 @@ node install.mjs
 ## What The Installer Does
 
 - auto-detect the SillyTavern root directory
-- prefer installing the extension panel into `data/<user>/extensions/server-plugin-switch`
+- install the extension panel into `data/<user>/extensions/server-plugin-switch`
 - install the server plugin into `plugins/server-plugin-switch`
 - set `enableServerPlugins: true` in `config.yaml`
 - clean same-name leftovers before reinstall
 - keep `data/.server-plugin-switch/config.json` untouched
+
+`data/<user>/extensions/server-plugin-switch` is the real on-disk user-extension directory in current SillyTavern builds.
+The browser still reaches it through `/scripts/extensions/third-party/server-plugin-switch/*`.
+Only when no user extension directory can be detected does the installer fall back to the legacy third-party path.
 
 ## Explicit Path Install
 

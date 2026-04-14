@@ -45,11 +45,15 @@ node install.mjs
 ## 安装脚本会做什么
 
 - 自动定位 SillyTavern 根目录
-- 优先把 extension 面板复制到 `data/<user>/extensions/server-plugin-switch`
+- 把 extension 面板安装到 `data/<user>/extensions/server-plugin-switch`
 - 把 server plugin 复制到 `plugins/server-plugin-switch`
 - 自动把 `config.yaml` 里的 `enableServerPlugins` 改成 `true`
 - 清掉同名旧安装残留
 - 不会自动删除 `data/.server-plugin-switch/config.json`
+
+这里的 `data/<user>/extensions/server-plugin-switch` 是当前 SillyTavern 用户扩展的真实磁盘目录。
+浏览器访问时仍然走 `/scripts/extensions/third-party/server-plugin-switch/*` 这条路由。
+只有在安装脚本探测不到任何用户目录时，才会回退到旧式 third-party 目录。
 
 ## 手动指定路径
 

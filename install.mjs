@@ -61,7 +61,7 @@ function getUserBaseDirs(sillyTavernRoot) {
         });
 }
 
-function getPreferredExtensionTargetDirs(sillyTavernRoot) {
+function getExtensionTargetDirs(sillyTavernRoot) {
     const userBaseDirs = getUserBaseDirs(sillyTavernRoot);
     if (userBaseDirs.length > 0) {
         return userBaseDirs.map((userBaseDir) => path.join(userBaseDir, 'extensions', PROJECT_NAME));
@@ -117,7 +117,7 @@ async function main() {
     });
     const sillyTavernRoot = resolution.root;
 
-    const extensionTargetDirs = getPreferredExtensionTargetDirs(sillyTavernRoot);
+    const extensionTargetDirs = getExtensionTargetDirs(sillyTavernRoot);
     const cleanupExtensionTargetDirs = Array.from(new Set([
         ...extensionTargetDirs,
         ...getLegacyExtensionTargetDirs(sillyTavernRoot),
