@@ -45,8 +45,8 @@ node install.mjs
 ## 安装脚本会做什么
 
 - 自动定位 SillyTavern 根目录
-- 把 extension 面板安装到 `data/<user>/extensions/server-plugin-switch`
-- 把 server plugin 复制到 `plugins/server-plugin-switch`
+- 把本仓库里的 extension 源目录 `companion-extension/server-plugin-switch/` 复制到 SillyTavern 的 `data/<user>/extensions/server-plugin-switch`
+- 把本仓库根目录里的后端文件复制到 SillyTavern 的 `plugins/server-plugin-switch`
 - 自动把 `config.yaml` 里的 `enableServerPlugins` 改成 `true`
 - 清掉同名旧安装残留
 - 不会自动删除 `data/.server-plugin-switch/config.json`
@@ -54,6 +54,14 @@ node install.mjs
 这里的 `data/<user>/extensions/server-plugin-switch` 是当前 SillyTavern 用户扩展的真实磁盘目录。
 浏览器访问时仍然走 `/scripts/extensions/third-party/server-plugin-switch/*` 这条路由。
 只有在安装脚本探测不到任何用户目录时，才会回退到旧式 third-party 目录。
+
+## 本仓库结构
+
+- extension 源目录：`companion-extension/server-plugin-switch/`
+- 后端源文件：仓库根目录下的 `index.js`、`package.json`、`README*`、`CHANGELOG.md`、`LICENSE`
+
+所以你在当前仓库里看不到 `plugins/server-plugin-switch/` 或 `data/<user>/extensions/server-plugin-switch/` 这两个目录。
+那两个是安装脚本写进目标 SillyTavern 目录后的结果，不是本仓库自己的源码布局。
 
 ## 手动指定路径
 
@@ -94,7 +102,7 @@ node uninstall.mjs /path/to/SillyTavern
 
 ## 数据位置
 
-### 安装位置
+### 安装结果目录
 
 - Extension 面板：`data/<user>/extensions/server-plugin-switch`
 - Server Plugin：`plugins/server-plugin-switch`

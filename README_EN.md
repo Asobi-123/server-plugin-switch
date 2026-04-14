@@ -45,8 +45,8 @@ node install.mjs
 ## What The Installer Does
 
 - auto-detect the SillyTavern root directory
-- install the extension panel into `data/<user>/extensions/server-plugin-switch`
-- install the server plugin into `plugins/server-plugin-switch`
+- copy this repository's extension source directory `companion-extension/server-plugin-switch/` into SillyTavern at `data/<user>/extensions/server-plugin-switch`
+- copy this repository's root-side backend files into SillyTavern at `plugins/server-plugin-switch`
 - set `enableServerPlugins: true` in `config.yaml`
 - clean same-name leftovers before reinstall
 - keep `data/.server-plugin-switch/config.json` untouched
@@ -54,6 +54,14 @@ node install.mjs
 `data/<user>/extensions/server-plugin-switch` is the real on-disk user-extension directory in current SillyTavern builds.
 The browser still reaches it through `/scripts/extensions/third-party/server-plugin-switch/*`.
 Only when no user extension directory can be detected does the installer fall back to the legacy third-party path.
+
+## Repository Layout
+
+- extension source: `companion-extension/server-plugin-switch/`
+- backend source files: root-level `index.js`, `package.json`, `README*`, `CHANGELOG.md`, and `LICENSE`
+
+So this repository itself does not contain `plugins/server-plugin-switch/` or `data/<user>/extensions/server-plugin-switch/`.
+Those two paths are the install result inside the target SillyTavern directory, not this repository's own source layout.
 
 ## Explicit Path Install
 
@@ -94,7 +102,7 @@ It does not delete `data/.server-plugin-switch/config.json`.
 
 ## Data Layout
 
-### Install Locations
+### Installed Locations
 
 - Extension panel: `data/<user>/extensions/server-plugin-switch`
 - Server plugin: `plugins/server-plugin-switch`
