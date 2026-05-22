@@ -17,7 +17,8 @@
 如果没有，检查：
 
 - `plugins/server-plugin-switch/index.js` 是否存在
-- `config.yaml` 里的 `enableServerPlugins` 是否为 `true`
+- 生效配置文件里的 `enableServerPlugins` 是否为 `true`
+- 优先检查 `config/config.yaml`，没有再看根目录 `config.yaml`
 
 ## 切换后为什么没立刻生效
 

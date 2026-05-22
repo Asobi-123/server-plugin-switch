@@ -47,13 +47,14 @@ node install.mjs
 - 自动定位 SillyTavern 根目录
 - 把本仓库里的 extension 源目录 `companion-extension/server-plugin-switch/` 复制到 SillyTavern 的 `data/<user>/extensions/server-plugin-switch`
 - 把本仓库根目录里的后端文件复制到 SillyTavern 的 `plugins/server-plugin-switch`
-- 自动把 `config.yaml` 里的 `enableServerPlugins` 改成 `true`
+- 自动把生效配置文件里的 `enableServerPlugins` 改成 `true`
 - 清掉同名旧安装残留
 - 不会自动删除 `data/.server-plugin-switch/config.json`
 
 这里的 `data/<user>/extensions/server-plugin-switch` 是当前 SillyTavern 用户扩展的真实磁盘目录。
 浏览器访问时仍然走 `/scripts/extensions/third-party/server-plugin-switch/*` 这条路由。
 只有在安装脚本探测不到任何用户目录时，才会回退到旧式 third-party 目录。
+配置文件路径会优先使用已存在的 `config/config.yaml`，找不到时才回退到根目录 `config.yaml`。
 
 ## 本仓库结构
 

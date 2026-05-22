@@ -47,13 +47,14 @@ node install.mjs
 - auto-detect the SillyTavern root directory
 - copy this repository's extension source directory `companion-extension/server-plugin-switch/` into SillyTavern at `data/<user>/extensions/server-plugin-switch`
 - copy this repository's root-side backend files into SillyTavern at `plugins/server-plugin-switch`
-- set `enableServerPlugins: true` in `config.yaml`
+- set `enableServerPlugins: true` in the active config file
 - clean same-name leftovers before reinstall
 - keep `data/.server-plugin-switch/config.json` untouched
 
 `data/<user>/extensions/server-plugin-switch` is the real on-disk user-extension directory in current SillyTavern builds.
 The browser still reaches it through `/scripts/extensions/third-party/server-plugin-switch/*`.
 Only when no user extension directory can be detected does the installer fall back to the legacy third-party path.
+For config updates, the installer prefers an existing `config/config.yaml` and only falls back to root-level `config.yaml` when needed.
 
 ## Repository Layout
 

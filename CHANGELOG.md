@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Fixed installer config target selection to prefer the active `config/config.yaml`
+- Updated install, uninstall, testing, and troubleshooting docs to match the active-config rule
+
 ## 0.1.0
 
 - Initial release of `server-plugin-switch`

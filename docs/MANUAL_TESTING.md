@@ -3,7 +3,8 @@
 ## 安装前提
 
 - SillyTavern 可以正常启动
-- `config.yaml` 已允许 server plugins
+- 生效配置文件已允许 server plugins
+- 优先检查 `config/config.yaml`，没有再看根目录 `config.yaml`
 - 已执行 `node install.mjs`
 
 ## 基础检查
